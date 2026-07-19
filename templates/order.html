@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Place Order</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<h2>🍽 University Canteen</h2>
+</div>
+
+<nav>
+
+<a href="{{ url_for('home') }}">Home</a>
+<a href="{{ url_for('dashboard') }}">Dashboard</a>
+<a href="{{ url_for('order') }}">Order</a>
+
+</nav>
+
+</header>
+
+<section class="order-section">
+
+<div class="order-box">
+
+<h1>Place Your Order</h1>
+
+<form action="{{ url_for('order') }}" method="POST">
+
+<label>Customer Name</label>
+<input type="text" name="customer_name" placeholder="Enter your name" required>
+
+<label>Student ID</label>
+<input type="text" name="student_id" placeholder="Enter Student ID" required>
+
+<label>Phone Number</label>
+<input type="tel" name="phone" placeholder="Enter Phone Number" required>
+
+<label>Select Food</label>
+
+<select name="food_name" id="food" onchange="calculateTotal()">
+
+    <option value="" data-price="0">Select Food</option>
+
+    <option value="Chicken Burger" data-price="350"
+        {% if selected_food=="Chicken Burger" %}selected{% endif %}>
+        Chicken Burger - Rs.350
+    </option>
+
+    <option value="Pizza" data-price="800"
+        {% if selected_food=="Pizza" %}selected{% endif %}>
+        Pizza - Rs.800
+    </option>
+
+    <option value="Fried Rice" data-price="450"
+        {% if selected_food=="Fried Rice" %}selected{% endif %}>
+        Fried Rice - Rs.450
+    </option>
+
+    <option value="Chicken Kottu" data-price="550"
+        {% if selected_food=="Chicken Kottu" %}selected{% endif %}>
+        Chicken Kottu - Rs.550
+    </option>
+
+    <option value="Milk Tea" data-price="100"
+        {% if selected_food=="Milk Tea" %}selected{% endif %}>
+        Milk Tea - Rs.100
+    </option>
+
+    <option value="Orange Juice" data-price="250"
+        {% if selected_food=="Orange Juice" %}selected{% endif %}>
+        Orange Juice - Rs.250
+    </option>
+
+</select>
+
+<label>Quantity</label>
+
+<input type="number"
+       id="qty"
+       name="quantity"
+       value="1"
+       min="1"
+       onchange="calculateTotal()">
+
+<label>Total Price (Rs.)</label>
+
+<input type="text"
+       id="total"
+       name="total"
+       readonly>
+
+<label>Special Instructions</label>
+
+<textarea name="instructions" rows="4" placeholder="Optional"></textarea>
+
+
+
+<button type="submit">
+    Confirm Order
+</button>
+
+<button type="reset">
+    Reset
+</button>
+
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 University Canteen Management System
+
+</p>
+
+</footer>
+
+<script>
+function calculateTotal() {
+
+    let food = document.getElementById("food");
+
+    let price = Number(food.options[food.selectedIndex].dataset.price);
+
+    let qty = Number(document.getElementById("qty").value);
+
+    document.getElementById("total").value = price * qty;
+}
+
+window.onload = calculateTotal;
+</script>
+
+</body>
+
+</html>

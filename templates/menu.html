@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Food Menu</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <h2>🍽 University Canteen</h2>
+    </div>
+
+    <nav>
+
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('menu') }}">Menu</a>
+        <a href="{{ url_for('login') }}">Admin Login</a>
+
+    </nav>
+
+</header>
+
+<section class="menu-page">
+
+<h1>Today's Food Menu</h1>
+
+<p>Fresh • Healthy • Affordable Meals</p>
+
+<div class="search-bar">
+
+<input type="text" placeholder="🔍 Search Food">
+
+<select>
+
+<option>All Categories</option>
+<option>Rice</option>
+<option>Burger</option>
+<option>Pizza</option>
+<option>Drinks</option>
+<option>Desserts</option>
+
+</select>
+
+</div>
+
+<div class="food-grid">
+
+{% for food in foods %}
+
+<div class="food-card">
+
+{% if food[1] == "Chicken Burger" %}
+<img src="{{ url_for('static', filename='images/burger.jpg') }}" alt="{{ food[1] }}">
+
+{% elif food[1] == "Pizza" %}
+<img src="{{ url_for('static', filename='images/pizza.jpg') }}" alt="{{ food[1] }}">
+
+{% elif food[1] == "Fried Rice" %}
+<img src="{{ url_for('static', filename='images/friedrice.jpg') }}" alt="{{ food[1] }}">
+
+{% elif food[1] == "Chicken Kottu" %}
+<img src="{{ url_for('static', filename='images/Chicken Kottu.jpg') }}" alt="{{ food[1] }}">
+
+{% elif food[1] == "Milk Tea" %}
+<img src="{{ url_for('static', filename='images/Milk Tea.jpg') }}" alt="{{ food[1] }}">
+
+{% elif food[1] == "Orange Juice" %}
+<img src="{{ url_for('static', filename='images/Orange Juice.jpg') }}" alt="{{ food[1] }}">
+
+{% else %}
+<img src="{{ url_for('static', filename='images/canteen.jpg') }}" alt="{{ food[1] }}">
+{% endif %} 
+
+    <h2>{{ food[1] }}</h2>
+
+    <h3>Rs. {{ food[3] }}</h3>
+
+    <p>{{ food[5] }}</p>
+
+    <p>Available: {{ food[4] }}</p>
+
+    <a href="{{ url_for('order', food_name=food[1]) }}">
+        <button>🛒 Order Now</button>
+    </a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 University Canteen Management System
+
+</p>
+
+</footer>
+
+</body>
+
+</html>

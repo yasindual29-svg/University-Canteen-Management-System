@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Manage Orders</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6f9;
+}
+
+header{
+background:#2f4156;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+}
+
+header h2{
+color:white;
+font-size:35px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-size:20px;
+}
+
+nav a:hover{
+color:#27ae60;
+}
+
+.container{
+width:90%;
+margin:40px auto;
+}
+
+.title{
+text-align:center;
+font-size:40px;
+margin-bottom:35px;
+color:#2f4156;
+}
+
+.search{
+margin-bottom:25px;
+display:flex;
+justify-content:space-between;
+}
+
+.search input{
+width:350px;
+padding:12px;
+font-size:16px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+table{
+width:100%;
+background:white;
+border-collapse:collapse;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+table th{
+background:#2f4156;
+color:white;
+padding:15px;
+}
+
+table td{
+padding:15px;
+text-align:center;
+border-bottom:1px solid #ddd;
+}
+
+table tr:hover{
+background:#f2f2f2;
+}
+
+.status{
+padding:8px 15px;
+border-radius:20px;
+font-weight:bold;
+color:white;
+}
+
+.pending{
+background:orange;
+}
+
+.preparing{
+background:#3498db;
+}
+
+.completed{
+background:#27ae60;
+}
+
+button{
+padding:8px 15px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+color:white;
+margin:2px;
+}
+
+.edit{
+background:#3498db;
+}
+
+.delete{
+background:#e74c3c;
+}
+
+.view{
+background:#27ae60;
+}
+
+.bottom{
+margin-top:30px;
+text-align:center;
+}
+
+.bottom a{
+text-decoration:none;
+padding:12px 30px;
+background:#27ae60;
+color:white;
+border-radius:8px;
+margin:10px;
+display:inline-block;
+}
+
+.bottom a:hover{
+background:#1e8449;
+}
+
+footer{
+margin-top:50px;
+background:#2f4156;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+
+<h2>🍽 University Canteen</h2>
+
+<nav>
+
+<a href="{{ url_for('dashboard') }}">Dashboard</a>
+<a href="{{ url_for('addfood') }}">Add Food</a>
+<a href="{{ url_for('viewfood') }}">View Food</a>
+<a href="{{ url_for('order') }}">Orders</a>
+<a href="{{ url_for('report') }}">Reports</a>
+<a href="{{ url_for('login') }}">Logout</a>
+ 
+
+</nav>
+
+</header>
+
+<div class="container">
+
+<h1 class="title">Customer Orders</h1>
+
+<div class="search">
+
+<input type="text" placeholder="🔍 Search by Customer Name">
+
+</div>
+
+<table>
+
+<tr>
+
+<th>Order ID</th>
+<th>Customer</th>
+<th>Food</th>
+<th>Qty</th>
+<th>Total</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+{% for order in orders %}
+
+<tr>
+
+<td>{{ order[0] }}</td>
+<td>{{ order[1] }}</td>
+<td>{{ order[4] }}</td>
+<td>{{ order[5] }}</td>
+<td>Rs.{{ order[6] }}</td>
+
+<td>
+
+{% if order[8] == "Pending" %}
+<span class="status pending">Pending</span>
+
+{% elif order[8] == "Preparing" %}
+<span class="status preparing">Preparing</span>
+
+{% elif order[8] == "Completed" %}
+<span class="status completed">Completed</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+<a href="{{ url_for('view_order', id=order[0]) }}">
+<button class="view">View</button>
+</a>
+
+<a href="{{ url_for('update_order', id=order[0]) }}">
+<button class="edit">Update</button>
+</a>
+
+<a href="{{ url_for('delete_order', id=order[0]) }}">
+<button class="delete">Delete</button>
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+
+
+</table>
+
+<div class="bottom">
+
+    <a href="{{ url_for('dashboard') }}" class="bottom-btn">
+        ⬅ Dashboard
+    </a>
+
+    <a href="{{ url_for('report') }}" class="bottom-btn">
+        Report
+    </a>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>
+
+© 2026 University Canteen Management System
+
+</p>
+
+</footer>
+
+</body>
+
+</html>

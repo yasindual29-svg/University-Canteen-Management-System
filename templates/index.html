@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>University Canteen Management System</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    
+<header>
+
+    <div class="logo">
+        <h2>🍽 University Canteen</h2>
+    </div>
+
+    <nav>
+
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('menu') }}">Menu</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+        <a href="{{ url_for('login') }}">Admin Login</a>
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+<h1>University Canteen Management System</h1>
+
+<p>
+Fresh • Healthy • Affordable Meals
+</p>
+
+<a href="{{ url_for('menu') }}">
+    <button class="btn">View Menu</button>
+</a>
+
+<a href="{{ url_for('login') }}">
+    <button class="btn2">Admin Login</button>
+</a>
+
+</section>
+
+
+<section class="features">
+
+<h2>Why Choose Our Canteen?</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>🍔 Fresh Food</h3>
+
+<p>
+Freshly prepared meals every day.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>⚡ Fast Service</h3>
+
+<p>
+Quick ordering and fast delivery.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>💰 Affordable Prices</h3>
+
+<p>
+Student-friendly prices.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="menu">
+
+<h2>Today's Special</h2>
+
+<div class="food-container">
+
+<div class="food">
+
+    <img src="{{ url_for('static', filename='images/burger.jpg') }}" alt="Chicken Burger">
+
+    <h3>Chicken Burger</h3>
+
+    <p>Rs.350</p>
+
+    <a href="{{ url_for('order', food='Chicken Burger') }}">
+    <button type="button">Order</button>
+</a>
+
+</div>
+
+
+<div class="food">
+
+    <img src="{{ url_for('static', filename='images/pizza.jpg') }}" alt="Pizza">
+
+    <h3>Pizza</h3>
+
+    <p>Rs.800</p>
+
+    <a href="{{ url_for('order', food='Pizza') }}">
+    <button type="button">Order</button>
+    </a>
+
+</div>
+
+
+<div class="food">
+
+    <img src="{{ url_for('static', filename='images/friedrice.jpg') }}" alt="Fried Rice">
+    
+    <h3>Fried Rice</h3>
+
+    <p>Rs.450</p>
+     <a href="{{ url_for('order', food='Fried Rice') }}">
+    <button type="button">Order</button>
+
+   
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>
+
+© 2026 University Canteen Management System
+
+</p>
+
+</footer>
+
+</body>
+
+</html>

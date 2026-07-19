@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sales Report</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h2>🍽 University Canteen</h2>
+
+<nav>
+
+<a href="{{ url_for('dashboard') }}" class="btn">
+<a href="/addfood">Add Food</a>
+<a href="/menu">View Food</a>
+<a href="/report">Reports</a>
+<a href="{{ url_for('login') }}">Logout</a>
+
+</nav>
+
+</header>
+
+<div class="container">
+
+<h1 class="title">Sales Report</h1>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Total Orders</h3>
+
+<h1>{{ total_orders }}</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Total Sales</h3>
+
+<h1>Rs. {{ total_sales }}</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Total Customers</h3>
+
+<h1>{{ total_customers }}</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Most Popular Food</h3>
+
+<h1>{{ popular_food }}</h1>
+
+</div>
+
+</div>
+
+<table>
+
+<tr>
+
+<th>Date</th>
+<th>Orders</th>
+<th>Income</th>
+<th>Top Selling Item</th>
+
+</tr>
+
+{% for r in reports %}
+<tr>
+    <td>{{ r[0] }}</td>
+    <td>{{ r[1] }}</td>
+    <td>Rs. {{ r[2] }}</td>
+    <td>{{ r[3] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<center>
+
+<a href="#" class="btn" onclick="window.print()">
+
+🖨 Print Report
+
+</a>
+
+<a href="dashboard.html" class="btn">
+
+⬅ Back Dashboard
+
+</a>
+
+</center>
+
+</div>
+
+<footer>
+
+<p>
+
+© 2026 University Canteen Management System
+
+</p>
+
+</footer>
+
+</body>
+
+</html>

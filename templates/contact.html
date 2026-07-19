@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | University Canteen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f5f5f5;
+        }
+
+        header{
+            background:#2f4156;
+            color:white;
+            padding:20px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        header h1{
+            font-size:38px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin-left:30px;
+            font-size:22px;
+        }
+
+        nav a:hover{
+            color:#4CAF50;
+        }
+
+        .banner{
+            height:350px;
+            background:url("images/canteen.jpg") center/cover;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .banner h2{
+            color:white;
+            font-size:55px;
+            background:rgba(0,0,0,.5);
+            padding:20px 40px;
+            border-radius:10px;
+        }
+
+        .container{
+            width:85%;
+            margin:60px auto;
+        }
+
+        .about{
+            display:flex;
+            justify-content:space-between;
+            gap:50px;
+            align-items:center;
+        }
+
+        .about img{
+            width:500px;
+            border-radius:15px;
+            box-shadow:0 10px 20px rgba(0,0,0,.3);
+        }
+
+        .text{
+            flex:1;
+        }
+
+        .text h2{
+            color:#2f4156;
+            font-size:42px;
+            margin-bottom:20px;
+        }
+
+        .text p{
+            font-size:20px;
+            line-height:35px;
+            text-align:justify;
+        }
+
+        .cards{
+            margin-top:70px;
+            display:flex;
+            justify-content:space-between;
+            gap:30px;
+        }
+
+        .card{
+            background:white;
+            width:30%;
+            padding:35px;
+            text-align:center;
+            border-radius:15px;
+            box-shadow:0 5px 20px rgba(0,0,0,.2);
+        }
+
+        .card h3{
+            color:#2f4156;
+            margin:20px 0;
+        }
+
+        .card p{
+            line-height:28px;
+        }
+
+        footer{
+            background:#2f4156;
+            color:white;
+            text-align:center;
+            padding:20px;
+            margin-top:60px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🍽 University Canteen</h1>
+
+<nav>
+
+<a href="{{ url_for('home') }}">Home</a>
+<a href="{{ url_for('menu') }}">Menu</a>
+<a href="{{ url_for('about') }}">About</a>
+<a href="{{ url_for('contact') }}">Contact</a>
+<a href="{{ url_for('login') }}">Admin Login</a>
+
+
+</nav>
+
+</header>
+
+<section class="banner">
+
+<h2>About Our Canteen</h2>
+
+</section>
+
+<div class="container">
+
+<div class="about">
+
+<img src="{{ url_for('static', filename='images/canteen.jpg') }}" alt="canteen.jpg">
+
+<div class="text">
+
+<h2>Who We Are</h2>
+
+<p>
+
+The University Canteen Management System is designed to provide
+students and staff with a fast, simple, and convenient food ordering
+experience. Our canteen offers a variety of healthy, delicious, and
+affordable meals every day.
+
+Using this system, customers can browse the menu, place orders,
+and receive bills quickly. Administrators can efficiently manage
+food items, orders, sales, and reports.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h1>🎯</h1>
+
+<h3>Our Mission</h3>
+
+<p>
+
+Provide fresh food with fast service while ensuring quality,
+cleanliness, and customer satisfaction.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h1>👨‍🍳</h1>
+
+<h3>Quality Food</h3>
+
+<p>
+
+We prepare fresh meals every day using quality ingredients
+to ensure the best dining experience.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h1>⭐</h1>
+
+<h3>Best Service</h3>
+
+<p>
+
+Our goal is to make ordering easier and faster for all
+students and university staff.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>
+
+© 2026 University Canteen Management System | All Rights Reserved
+
+</p>
+
+</footer>
+
+</body>
+
+</html>

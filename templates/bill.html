@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Invoice</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<h2>🍽 University Canteen</h2>
+</div>
+
+<nav>
+
+<a href="{{ url_for('home') }}">Home</a>
+<a href="{{ url_for('menu') }}">Menu</a>
+<a href="{{ url_for('order') }}">Orders</a>
+
+</nav>
+
+</header>
+
+<section class="invoice-section">
+
+<div class="invoice">
+
+<h1>Payment Invoice</h1>
+
+<hr>
+
+<div class="invoice-header">
+
+<div>
+
+<p><strong>Invoice No :</strong> INV-1001</p>
+
+<p><strong>Date :</strong> 15 July 2026</p>
+
+<p><strong>Time :</strong> 12:45 PM</p>
+
+</div>
+
+<div>
+
+<h2>University Canteen</h2>
+
+<p>Faculty of ICT</p>
+
+<p>ABC University</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<h3>Customer Information</h3>
+
+<table class="customer-table">
+
+<tr>
+<td><strong>Name</strong></td>
+<td>Kasun Perera</td>
+</tr>
+
+<tr>
+<td><strong>Student ID</strong></td>
+<td>ICT2025001</td>
+</tr>
+
+<tr>
+<td><strong>Phone</strong></td>
+<td>0771234567</td>
+</tr>
+
+</table>
+
+<br>
+
+<h3>Order Details</h3>
+
+<table class="bill-table">
+
+<tr>
+
+<th>Food Item</th>
+<th>Qty</th>
+<th>Price</th>
+<th>Total</th>
+
+</tr>
+
+<tr>
+
+<td>Chicken Burger</td>
+<td>2</td>
+<td>Rs.350</td>
+<td>Rs.700</td>
+
+</tr>
+
+<tr>
+
+<td>Milk Tea</td>
+<td>2</td>
+<td>Rs.100</td>
+<td>Rs.200</td>
+
+</tr>
+
+<tr>
+
+<td colspan="3"><strong>Grand Total</strong></td>
+
+<td><strong>Rs.900</strong></td>
+
+</tr>
+
+</table>
+
+<br>
+
+<div class="payment">
+
+<h3>Payment Status</h3>
+
+<p class="paid">✅ PAID</p>
+
+</div>
+
+<div class="thanks">
+
+<h2>Thank You!</h2>
+
+<p>Your order has been received successfully.</p>
+
+<p>Have a Nice Day 😊</p>
+
+</div>
+
+<div class="bill-buttons">
+<button onclick="window.print()">
+
+🖨 Print Bill
+
+</button>
+
+<a href="index.html">
+
+<button>
+
+Back Home
+
+</button>
+
+</a>
+
+<a href="index.html">
+
+<button>🏠 Back Home</button>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 University Canteen Management System
+
+</p>
+
+</footer>
+
+</body>
+
+</html>

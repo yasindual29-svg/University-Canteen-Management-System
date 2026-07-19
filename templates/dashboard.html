@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <h2>🍽 University Canteen</h2>
+    </div>
+
+    <nav>
+
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('menu') }}">Menu</a>
+        <a href="{{ url_for('login') }}">Logout</a>
+    </nav>
+
+</header>
+
+
+<section class="dashboard">
+
+    <h1>Admin Dashboard</h1>
+
+    <p>Welcome Administrator</p>
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-card">
+
+            <h2>🍔</h2>
+
+            <h3>Add Food</h3>
+
+            <p>Add new food items to the menu.</p>
+
+            <a href="{{ url_for('addfood') }}">
+            <button>Open</button>
+            </a>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <h2>📋</h2>
+
+            <h3>View Foods</h3>
+
+            <p>View all available food items.</p>
+
+            <a href="{{ url_for('viewfood') }}">
+            <button>Open</button>
+            </a>
+
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <h2>🛒</h2>
+
+            <h3>Orders</h3>
+
+            <p>View customer orders.</p>
+
+            <a href="{{ url_for('order') }}">
+            <button>Open</button>
+            </a>
+
+        </div>
+        
+        <div class="dashboard-card">
+
+            <h2>🛒</h2>
+
+            <h3>All Orders</h3>
+
+            <p>View all customer orders.</p>
+
+            <a href="{{ url_for('allorder') }}">
+            <button>Open</button>
+            </a>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <h2>📊</h2>
+
+            <h3>Reports</h3>
+
+            <p>View daily sales reports.</p>
+
+            <a href="{{ url_for('report') }}">
+            <button>Open</button>
+            </a>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <h2>👥</h2>
+
+            <h3>Customers</h3>
+
+            <p>View registered customers.</p>
+
+            <a href="#">
+                <button>Open</button>
+            </a>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <h2>🚪</h2>
+
+            <h3>Logout</h3>
+
+            <p>Logout from the system.</p>
+
+            <a href="{{ url_for('login') }}">
+            <button>Logout</button>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 University Canteen Management System
+
+</p>
+
+</footer>
+
+</body>
+
+</html>

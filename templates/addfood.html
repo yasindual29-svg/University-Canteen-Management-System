@@ -1,0 +1,97 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Food</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+
+
+<header>
+
+    <div class="logo">
+        <h2>🍽 University Canteen</h2>
+    </div>
+
+    <nav>
+
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+
+        <a href="{{ url_for('viewfood') }}">View Food</a>
+        <a href="{{ url_for('order') }}">Orders</a>
+        <a href="{{ url_for('report') }}">Reports</a>
+        <a href="{{ url_for('login')}}">Logout</a>
+
+    </nav>
+
+</header>
+
+<section class="add-food">
+
+    <div class="food-form">
+
+        <h1>Add New Food Item</h1>
+
+    <form action="{{ url_for('addfood') }}" method="POST">
+
+         <label>Food Name</label>
+         <input type="text" name="food_name" required>
+
+         <label>Category</label>
+         <select name="category" required>
+                <option value="">Select Category</option>
+                <option value="Rice">Rice</option>
+                <option value="Kottu">Kottu</option>
+                <option value="Burger">Burger</option>
+                <option value="Pizza">Pizza</option>
+                <option value="Drinks">Drinks</option>
+                <option value="Desserts">Desserts</option>
+    </select>
+
+            <label>Price (Rs.)</label>
+            <input type="number" name="price" required>
+
+            <label>Quantity</label>
+            <input type="number" name="quantity" required>
+
+            <label>Description</label>
+            <textarea name="description"></textarea>
+
+            <label>Upload Food Image</label>
+            <input type="file" name="image">
+
+            <div class="button-group">
+
+                <button type="submit" class="save-btn">💾 Save Food</button>
+
+                <button type="reset" class="reset-btn">🔄 Reset</button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 University Canteen Management System
+
+</p>
+
+</footer>
+
+</body>
+
+</html>
